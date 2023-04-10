@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    margin: 1rem;
+}
+
+.form-group .required:after {
+    content: "*";
+    color: red;
+    font-weight: bold;
+}
+
+textarea {
+    resize: none !important;
+}
+
+.btn-add-product {
+    color: white !important;
+    border-radius: 0 !important;
+}
+
+.btn-cancel {
+    border-radius: 0 !important;
+    border-color: transparent !important;
+}
+
+.btn-confirm {
+    border-radius: 0 !important;
+    border-color: limegreen !important;
+    background-color: limegreen !important;
+}
+
+.btn-confirm:disabled {
+    border-color: #6c757d !important;
+    background-color: #6c757d !important;
+}

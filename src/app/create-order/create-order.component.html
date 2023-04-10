@@ -1,0 +1,158 @@
+<div class="container">
+    <h5 class="title-page">Create Order</h5>
+    <div class="card">
+        <div class="card-body">
+            <div class="row user">
+                <div class="col-3">
+                    <h6 class="title-submenu">Detail</h6>
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-md-8" id="field-name">
+                            <div class="form-group">
+                                <label for="name" class="form-label required">Name</label>
+                                <select name="name" id="name" class="form-select">
+                                    <ng-container *ngIf="employees.length > 0">
+                                        <option value="" disabled selected>Name</option>
+                                        <option *ngFor="let employee of employees" value="{{ employee['id'] }}">
+                                            {{ employee['employee_name'] }}
+                                        </option>
+                                    </ng-container>
+                                    <option *ngIf="employees.length == 0" value="" disabled selected>No data available</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="field-distribution-center">
+                            <div class="form-group mt-4">
+                                <label for="distribution-center" class="form-label required">Distribution Center</label>
+                                <select name="distribution-center" id="distribution-center" class="form-select">
+                                    <option value="">No data available</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="w-100 d-none d-md-block"></div>
+                        <div class="col-md-6" id="field-payment-type" hidden>
+                            <div class="form-group mt-4">
+                                <label for="payment-type" class="form-label required">Payment Type</label>
+                                <select name="payment-type" id="payment-type" class="form-select">
+                                    <option value="" disabled selected>Payment Type</option>
+                                    <option value="Cash H+1">Cash H+1</option>
+                                    <option value="Cash H+3">Cash H+3</option>
+                                    <option value="Cash H+7">Cash H+7</option>
+                                    <option value="Transfer H+1">Transfer H+1</option>
+                                    <option value="Transfer H+3">Transfer H+3</option>
+                                    <option value="Transfer H+7">Transfer H+7</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6" id="field-expiration-date" hidden>
+                            <div class="form-group mt-4">
+                                <label for="expiration-date" class="form-label required">Expiration Date</label>
+                                <input type="date" name="expiration-date" id="expiration-date"
+                                    class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-8" id="field-notes" hidden>
+                            <div class="form-group mt-4">
+                                <label for="notes" class="form-label">Notes</label>
+                                <textarea name="notes" id="notes" rows="4" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row products mt-4" id="products" hidden>
+                <hr>
+                <div class="col-3">
+                    <h6 class="title-submenu">Products</h6>
+                </div>
+                <div class="col-9">
+                    <div class="list-products">
+                        <div class="detail-product mb-4">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label for="product-name" class="form-label required">Product</label>
+                                        <select name="product-name" id="product-name"
+                                            class="form-select product-name">
+                                            <ng-container *ngIf="products.length > 0">
+                                                <option value="" disabled selected>Product Name</option>
+                                                <option *ngFor="let product of products" value="{{ product['product_name'] }}">
+                                                    {{ product['product_name'] }}
+                                                </option>
+                                            </ng-container>
+                                            <option *ngIf="employees.length == 0" value="" disabled selected>No data available</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="unit" class="form-label required">Unit</label>
+                                        <select name="unit" id="unit" class="form-select unit">
+                                            <option value="" disabled selected>Unit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-4">
+                                        <label for="quantity" class="form-label required">Quantity</label>
+                                        <input type="number" name="quantity" id="quantity"
+                                            class="form-control quantity" min="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group mt-4">
+                                        <label for="price" class="form-label required">Price</label>
+                                        <input type="number" name="price" id="price"
+                                            class="form-control price" min="1">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mt-4">
+                                        <label for="total-price" class="form-label required">Total price</label>
+                                        <input type="number" name="total-price" id="total-price"
+                                            class="form-control total-price" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 offset-6">
+                                    <hr>
+                                    <div class="row fw-bold">
+                                        <div class="col-6">
+                                            <label for="total-nett-price">Total Nett Price</label>
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="amount-total-nett-price"
+                                                class="float-end total-nett-price" id="total-nett-price">0</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-warning btn-add-product">NEW ITEM +</button>
+                        </div>
+                        <div class="col-6 offset-6 mt-3">
+                            <div class="row fw-bold">
+                                <div class="col-6">
+                                    <label for="total-all-price">Total</label>
+                                </div>
+                                <div class="col-6">
+                                    <label for="amount-total-all-price" class="float-end"
+                                        id="total-all-price">0</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr>
+            <div class="card-footer-order text-end">
+                <button type="button" class="btn btn-outline-secondary btn-cancel">CANCEL</button>
+                <button type="button" class="btn btn-success btn-confirm" disabled>CONFIRM</button>
+            </div>
+        </div>
+    </div>
+</div>

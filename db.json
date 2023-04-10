@@ -1,0 +1,27 @@
+{
+  "products": [{
+      "product_name": "product_1",
+      "units": [{
+          "name": "pak",
+          "price": 30000
+        },
+        {
+          "name": "pcs",
+          "price": 5000
+        }
+      ]
+    }, {
+      "product_name": "product_2",
+      "units": [{
+          "name": "karton",
+          "price": 120000
+        },
+        {
+          "name": "pak",
+          "price": 50000
+        }
+      ]
+    }
+
+  ]
+}
